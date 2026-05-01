@@ -9,6 +9,9 @@ def index(request):
         Task.objects.create(name=a , description=b, priority=c)
         return redirect('index')
     return render(request,'index.html',{'task':task})
+def delete(request, id):
+    Task.objects.filter(id=id).delete()
+    return redirect('index')
 
 
 # Create your views here.
